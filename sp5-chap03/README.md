@@ -68,6 +68,10 @@ public class MemberRegisterService {
 
 
 
+<br>
+
+
+
 ## 예제 클래스
 ### 회원 데이터 관련 클래스
 * Member
@@ -82,3 +86,36 @@ public class MemberRegisterService {
 ### 암호변경 관련 클래스
 * MemberNotFoundException
 * ChangePasswordService
+
+<br>
+
+
+
+## 6. 스프링의 DI 설정
+
+> [Spring DI 스프링 의존성 주입 3가지 방법](https://cheershennah.tistory.com/227)
+
+* 교재에서는 생성자 주입, 세터 메서드 주입 두 가지 방식을 소개하며 두 방식 모두 상황에 따라 혼용하여 사용하라고 하였으나, 최근에는 **생성자 주입**을 주로 권장한다
+
+
+
+
+
+
+
+
+
+### 8. Autowired
+
+```java
+@Component
+public class MemberServiceImpl implements MemberService {
+  private final MemberRepository memberRepository;
+  
+  @Autowird
+  public MemberServiceImpl(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+  }
+}
+```
+
